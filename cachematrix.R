@@ -6,10 +6,7 @@
 ## Returns a list of get/set methods that can be performed on the matrix
 makeCacheMatrix <- function(x = matrix()) 
 {
-        # Invert of x, intialized to NULL
-        invert<-NULL # note check if this is necessary or can initialize using set
-        
-        # Set the value of the matrix and initialize invert to NULL
+        # Sets the value of the matrix and initializes invert to NULL
         set<-function(y) 
         {
                 x <<- y
@@ -24,6 +21,9 @@ makeCacheMatrix <- function(x = matrix())
         
         # Retrieves the invert
         getinvert<-function() invert
+        
+        # Invoke set() to initialize all variables
+        set(x)
         
         # Return a list consisting of get/set methods that can be performed on the matrix
         list(set=set, get=get, setinvert=setinvert, getinvert=getinvert)
